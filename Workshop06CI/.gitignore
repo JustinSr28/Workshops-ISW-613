@@ -1,0 +1,22 @@
+# Composer vendor directory
+/vendor/
+
+# Logs and local writable files
+/writable/
+
+# Environment file (local setup)
+.env
+
+# IDE specific files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Lock file
+composer.lock
+
+# PHP Debug & Cache
+*.log
