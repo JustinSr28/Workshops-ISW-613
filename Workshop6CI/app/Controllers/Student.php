@@ -8,37 +8,37 @@ use App\Models\CarrerModel;
 class Student extends BaseController
 {
     public function index()
-{
-    $model = new StudentModel();
-    $data['students'] = $model->getStudentsWithCareer();
-    return view('students/index', $data);
-}
+    {
+        $model = new StudentModel();
+        $data['students'] = $model->getStudentsWithCareer();
+        return view('students/index', $data);
+    }
 
-
-    public function create(){
-    $carrerModel = new CarrerModel();
-    $data['carreras'] = $carrerModel->getAll();
-
+   public function create()
+    {
+    $carreraModel = new CarrerModel();
+    $data['carreras'] = $carreraModel->getAll();
     return view('students/create', $data);
     }
 
 
     public function store()
-    {
-        $model = new StudentModel();
+{
+    $model = new StudentModel();
 
-        $model->save([
-            'first_name'  => $this->request->getPost('first_name'),
-            'last_name'  => $this->request->getPost('last_name'),
-            'email' => $this->request->getPost('email'),
-            'idCarrer' => $this->request->getPost('idCarrer'),
-        ]);
+    $model->save([
+        'first_name'  => $this->request->getPost('first_name'),
+        'last_name'   => $this->request->getPost('last_name'),
+        'email'       => $this->request->getPost('email'),
+        'idCarrer'   => $this->request->getPost('idCarrer'),
+    ]);
 
-        return redirect()->to(base_url('students'));
-    }
+    return redirect()->to(base_url('students'));
+}
+
 
     public function edit($id)
-    {
+{
     $model = new StudentModel();
     $careerModel = new CarrerModel();
 
@@ -46,11 +46,11 @@ class Student extends BaseController
     $data['carreras'] = $careerModel->findAll(); // Carreras para el select
 
     return view('students/edit', $data);
-    }
+}
 
 
-    public function update($id)
-    {
+   public function update($id)
+{
     $model = new StudentModel();
 
     $model->update($id, [
@@ -64,11 +64,12 @@ class Student extends BaseController
 }
 
 
-    public function delete($id)
+   public function delete($id)
     {
-        $model = new StudentModel();
-        $model->delete($id);
-        return redirect()->to(base_url('students'));
-    
+    $model = new StudentModel();
+    $model->delete($id);
+
+    return redirect()->to(base_url('students'));
     }
+
 }
