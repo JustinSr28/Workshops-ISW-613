@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    color: #007bff;
+    text-align: center;
+}
+
+.tabla {
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.tabla tr td, .tabla tr th {
+    border: 1px solid #30bb94;
+    padding: 8px;
+}
